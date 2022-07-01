@@ -12,7 +12,7 @@ envelopesRouter.post('/', (req, res, next) => {
 
 envelopesRouter.get('/', (req, res, next) => {
     //console.log('---- jocow: in GET');
-    res.send(db.envelopes);
+    res.status(200).send(db.envelopes);
 });
 
 envelopesRouter.param('envelopeId', (req, res, next, id) => {
@@ -77,21 +77,10 @@ envelopesRouter.delete('/:envelopeId', (req, res, next) => {
 
   });
 
-/*
-// tester methods
-console.log('---- jocow: ========== START TESTS envelopes.js ==========');
-console.log('---- jocow: Start database:');
-console.log(db.envelopes);
-console.log('---- jocow: create 2 objects');
-const env1 = new db.Envelope('Pet care', 50);
-const env2 = new db.Envelope('Groceries', 75);
-console.log('---- jocow: log 2 objects');
-console.log(env1);
-console.log(env2);
-console.log('---- jocow: add to database');
-db.envelopes.push(env1);
-db.envelopes.push(env2);
-console.log('---- jocow: log database');
-console.log(db.envelopes);
-console.log('---- jocow: ========== END TESTS ==========');
+
+/*  ----------------- NOT WORKED OUT YET: transfer -------------------------
+
+router.post('/:fromId/transfer/:toId', transfer);
+
 */
+
